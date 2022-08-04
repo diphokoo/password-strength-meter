@@ -1,0 +1,43 @@
+<!-- Check the JS regex to see the pattern that decides password strength... you can define your own.   -->
+
+<div class="form-container">
+    <div>
+      <label for="signupInputPassword">Create New Password</label>
+
+      <input name="password" type="password" class="form-control mb-1" id="signupInputPassword" aria-describedby="passwordHelp" value="" />
+
+      <div class="input-icon-right peek-password-button" data-peek-password="signupInputPassword">
+        <span class="peek-password-icon icon-visibility"></span>
+      </div>
+
+    </div>
+
+    <div class="password-strength-group" data-strength="">
+
+      <div id="password-strength-meter" class="password-strength-meter">
+        <div class="meter-block"></div>
+        <div class="meter-block"></div>
+        <div class="meter-block"></div>
+        <div class="meter-block"></div>
+      </div>
+
+      <div class="password-strength-message">
+        <div class="message-item">
+          Weak Password
+        </div>
+
+        <div class="message-item">
+          Okay
+        </div>
+
+        <div class="message-item">
+          Strong
+        </div>
+
+        <div class="message-item">
+          Very Strong!
+        </div>
+      </div>
+
+    </div>
+  </div>

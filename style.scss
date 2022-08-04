@@ -1,0 +1,90 @@
+body {
+  font-family: "Roboto";
+}
+.form-container {
+  border: 1px solid #dedede;
+  max-width: 400px;
+  margin: auto;
+  padding: 30px 15px;
+  box-shadow: 0px 2px 5px #dedede;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+}
+input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  margin-bottom: 15px;
+  border: 1px solid #dedede;
+  box-sizing: border-box;
+}
+
+.password-strength-group {
+  .password-strength-meter {
+    width: 100%;
+    transition: height 0.3s;
+
+    display: flex;
+    justify-content: stretch;
+
+    //offseting meter-block gaps
+
+    .meter-block {
+      height: 4px;
+      background: #ccc;
+
+      margin-right: 6px;
+      flex-grow: 1;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .password-strength-message {
+    font-weight: 20px;
+    height: 1em;
+    text-align: right;
+    transition: all 0.5s;
+    margin-top: 3px;
+
+    position: relative;
+    .message-item {
+      font-size: 12px;
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  //define activated state:
+
+  @for $i from 1 through 4 {
+    &[data-strength="#{$i}"] {
+
+      .meter-block:nth-child(-n + #{$i}) {
+        //Switch cases color
+        @if ($i == 1) {
+          background: #cc3d04; //red
+        } @else if($i == 2) {
+          background: #ffc43b; //yellow
+        } @else if($i == 3) {
+          background: #9ea60a; //Yellow-green
+        } @else if($i == 4) {
+          background: #289116; //yellow
+        }
+      }
+
+      .message-item:nth-child(#{$i}) {
+        opacity: 1;
+      }
+    }
+  }
+}
